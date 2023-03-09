@@ -12,8 +12,7 @@ https://testnet.snowtrace.io/tx/0x516ab2598221ff8ad5fa8864a3911298866139cfbb3ee6
 ```
 ---
 
-* 使用Remix创建一个Counter合约
-  注：额外完成了合约验证
+* 使用Remix创建一个Counter合约（额外完成了合约验证）
 <p align="center">
   <img src="./w1_1/3.1-合约部署图1.png">
 </p>
