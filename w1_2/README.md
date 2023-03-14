@@ -99,5 +99,4 @@ npx hardhat run scripts/deploy.js --network avalanche
 * 合约验证地址
 ```
 https://testnet.snowtrace.io/address/0x81Aa3cD625a96dFB0B7733a0f440763EBfb6f58f
-
 ```
