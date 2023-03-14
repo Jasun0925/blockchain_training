@@ -34,7 +34,6 @@ contract Counter {
 * 脚本命令
 ```
 npx hardhat run scripts/deploy.js --network avalanche
-
 ```
 ---
 * 截图
@@ -91,15 +90,14 @@ describe("Counter", function () {
 <p align="center">
   <img src="./images/test.png">
 </p>
+
 ### 4. 代码开源到区块浏览器(npx hardhat verify ...) / 写上合约地址
 * 脚本命令
 ```
 npx hardhat run scripts/deploy.js --network avalanche
-
 ```
 * 合约验证地址
 
 ```
 https://testnet.snowtrace.io/address/0x81Aa3cD625a96dFB0B7733a0f440763EBfb6f58f
 ```
----
