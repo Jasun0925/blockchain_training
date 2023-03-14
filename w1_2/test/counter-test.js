@@ -6,7 +6,6 @@ describe("Counter", function () {
     it("部署人是否正确测试", async () => {
       const [owner1, owner2] = await ethers.getSigners();
 
-      
       // 配置owner1部署
       const Counter = await ethers.getContractFactory("Counter", {from: owner1, log: true});
       const counter = await Counter.deploy();

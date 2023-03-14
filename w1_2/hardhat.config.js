@@ -1,4 +1,5 @@
 require("@nomicfoundation/hardhat-toolbox");
+require("@nomiclabs/hardhat-etherscan");
 require("dotenv").config();
 
 // This is a sample Hardhat task. To learn how to create your own go to
@@ -29,13 +30,16 @@ module.exports = {
       gasPrice: 25000000000
     },
     avalanche: {
-      url: `https://api.avax-test.network/ext/bc/C/rpc`,
+      url: "https://api.avax-test.network/ext/bc/C/rpc",
       chainId: 43113,
       accounts: [
         process.env.AVALANCHE_PIVATE_KEY_OWNER1,
         process.env.AVALANCHE_PIVATE_KEY_OWNER2,
       ],
       gas: "auto"
+    },
+    etherscan: {
+      apiKey: `process.env.SNOWTRACE_API_KEY`
     }
   }
 };
