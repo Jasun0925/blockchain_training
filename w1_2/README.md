@@ -94,7 +94,7 @@ describe("Counter", function () {
 ### 4. 代码开源到区块浏览器(npx hardhat verify ...) / 写上合约地址
 * 脚本命令
 ```
-npx hardhat run scripts/deploy.js --network avalanche
+npx hardhat verify --network avalanche 0x81Aa3cD625a96dFB0B7733a0f440763EBfb6f58f
 ```
 * 合约验证地址
 ```
