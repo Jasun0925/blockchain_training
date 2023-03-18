@@ -180,7 +180,7 @@ https://testnet.snowtrace.io/address/0x07cebae28B4BCC8629e81c799201d46445b8F570
   <img src="./images/deploy.png">
 </p>
 
-### 3. 编写测试用例
+### 3. 
  * Case 1: 通过Metamask向Bank合约转账ETH 
  * Case 2: 在Bank合约记录每个地址转账金额
  * Case 3: 编写Bank合约withdraw(), 实现提取所有ETH
@@ -248,10 +248,14 @@ describe("Bank", function () {
 ### 4. explorer执行相关方法
 * 截图
 <p align="center">
-  <img src="./images/contract.png">
+  <img src="./images/explorer.png">
 </p>
 
-* 提现成功明细
+* 教师添加学生分数明细
 ```
-https://testnet.snowtrace.io/tx/0x226ef133ea6d6122c2e9234427ca09bf105f3f476b404324d80de4624f7d7ef6
+https://testnet.snowtrace.io/tx/0x00b483a23a6ff5050429b21760fefb463a5143363364837bf8b00975c2e6ad31
+```
+* 教师修改学生分数明细
+```
+https://testnet.snowtrace.io/tx/0xd8309b4043d1d7130b940ab87b549f464d2c47b34460e5d64a2e8c68ee7e7af3
 ```
