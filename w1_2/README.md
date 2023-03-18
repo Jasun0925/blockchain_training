@@ -91,12 +91,13 @@ describe("Counter", function () {
   <img src="./images/test.png">
 </p>
 
-### 4. 代码开源到区块浏览器(npx hardhat verify ...) / 写上合约地址
-* 脚本命令
+### 4. explorer执行相关方法
+* 截图
+<p align="center">
+  <img src="./images/contract.png">
+</p>
+
+* 提现成功明细
 ```
-npx hardhat run scripts/deploy.js --network avalanche
-```
-* 合约验证地址
-```
-https://testnet.snowtrace.io/address/0x81Aa3cD625a96dFB0B7733a0f440763EBfb6f58f
+https://testnet.snowtrace.io/tx/0x226ef133ea6d6122c2e9234427ca09bf105f3f476b404324d80de4624f7d7ef6
 ```
