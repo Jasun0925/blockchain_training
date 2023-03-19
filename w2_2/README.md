@@ -65,7 +65,7 @@ contract Score is IScore {
 }
 
 ```
-### 2. 编写合约Score, 用于记录学生(地址)分数：
+### 2. 编写合约Teacher, 用于操作添加学生分数/修改学生分数/查看学生分数等：
 ```
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.8.9;
