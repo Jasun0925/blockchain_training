@@ -39,7 +39,7 @@ contract Score is IScore {
         studentAddr = _studentAddr;
         score = _score;
 
-        // 默认为老师添加学生，则此处设置为老师地址
+        // 默认为老师添加学生，则此处设置为老师合约地址
         teacherScAddr = msg.sender;
         emit AddScore(studentAddr, score);
     }
@@ -74,7 +74,7 @@ import "./IScore.sol";
 
 contract Teacher {
     address public teacherAddr; // 教师地址
-    mapping(address => address) public students; // 学生地址=>分数
+    mapping(address => address) public students; // 学生地址=>学生分数合约
     address public proxyScoreAddr; // score合约副本，用于创建score合约
 
     event UpdateStudentScore(
@@ -100,7 +100,7 @@ contract Teacher {
         scoreAddr = deployMinimal(proxyScoreAddr);
         // 添加学生分数
         IScore(scoreAddr).addScore(studentAddr, score);
-        // 添加学生成绩映射
+        // 添加学生成绩合约地址映射
         students[studentAddr] = scoreAddr;
 
         emit UpdateStudentScore(scoreAddr, studentAddr, score, true);
