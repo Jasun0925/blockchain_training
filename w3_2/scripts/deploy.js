@@ -9,22 +9,22 @@ const hre = require("hardhat");
 async function main() {
   const [owner1] = await hre.ethers.getSigners();
   // 部署JasunNFT合约
-  const NFT = await hre.ethers.getContractFactory("JasunNFT", options = {from: owner1, log: true});
-  const nft = await NFT.deploy("JasunNFT", "JNFT");// 默认构造方法
+  // const NFT = await hre.ethers.getContractFactory("JasunNFT", options = {from: owner1, log: true});
+  // const nft = await NFT.deploy("JasunNFT", "JNFT");// 默认构造方法
 
-  await nft.deployed();
-  console.log("JasunNFT deployed to:", nft.address);
+  // await nft.deployed();
+  // console.log("JasunNFT deployed to:", nft.address);
 
-  const mintResult = await nft.safeMint(owner1.address, "ipfs://QmQzmCpCwXQvCg3umG1WNw8jQzFvdTRvsWFYp3PwDr8CZv")
-  const result = await mintResult.wait();
-  console.log(result)
+  // const mintResult = await nft.safeMint(owner1.address, "ipfs://QmQzmCpCwXQvCg3umG1WNw8jQzFvdTRvsWFYp3PwDr8CZv")
+  // const result = await mintResult.wait();
+  // console.log(result)
 
-  // 部署Teacher合约
-  // const Teacher = await hre.ethers.getContractFactory("Teacher", options = {from: owner1, log: true});
-  // const teacher = await Teacher.deploy(score.address);// 默认构造方法
+  // 部署Marker合约
+  const Marker = await hre.ethers.getContractFactory("Marker", options = {from: owner1, log: true});
+  const marker = await Marker.deploy("0xa6c6529df9Db51B17E84Cc3ee1db0C2663F95Fbc", "0xe6eA5696A051B7b38F231Cf958274C008B7F22Eb");// nft地址， token地址
 
-  // await teacher.deployed();
-  // console.log("Teacher deployed to:", teacher.address);
+  await marker.deployed();
+  console.log("Marker deployed to:", marker.address);
 }
 
 // We recommend this pattern to be able to use async/await everywhere
