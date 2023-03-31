@@ -1,0 +1,16 @@
+{
+    "title": "Jasun NFT Token",
+    "description": "我的ERC721 Token",
+    "image": "ipfs://QmSrMEAmWMmtuooGrGfqCkCF4v2GagNpvwaajwJtFxDr3X",
+    "attributes": [
+        {
+            "trait_type": "Java",
+            "value": "Java编程思想"
+        },
+        {
+            "trait_type": "Rust",
+            "value": "Rust权威指南"
+        }
+    ],
+    "version": "1"
+}
