@@ -17,7 +17,7 @@ contract JasunToken is ERC20, ERC20Permit {
 
 ```
 ### 2. 编写一个金库 Vault 合约:<br>
-① 编写 deposite 方法，实现 ERC20 存入 Vault，并记录每个用户存款金额(approve/transferFrom)<br>
+① 编写 deposit 方法，实现 ERC20 存入 Vault，并记录每个用户存款金额(approve/transferFrom)<br>
 ② 编写 withdraw 方法，提取用户自己的存款<br>
 代码如下： 
 ```
@@ -91,35 +91,56 @@ contract Vault{
 ```
 
 ### 4. 合约验证:
+* 部署脚本
+```
+const { BigNumber } = require("ethers");
+const hre = require("hardhat");
+
+const {BN} = require('bn.js')
+const TokenDecimals = new BN(String(1e18))
+
+async function main() {
+  const [owner1] = await hre.ethers.getSigners();
+  // 部署JasunToken合约
+  const Token = await hre.ethers.getContractFactory("JasunToken", options = {from: owner1, log: true});
+  
+  const initialAmount = String(new BN('100000000').mul(TokenDecimals)) //首次发行量
+  const token = await Token.deploy(initialAmount);// 默认构造方法
+
+  await token.deployed();
+  console.log("JasunToken deployed to:", token.address);
+
+  // 部署Vault合约
+  const Vault = await hre.ethers.getContractFactory("Vault", options = {from: owner1, log: true});
+  const vault = await Vault.deploy(owner1.address, token.address);
+
+  await vault.deployed();
+  console.log("Vault deployed to:", vault.address);
+}
+
+// We recommend this pattern to be able to use async/await everywhere
+// and properly handle errors.
+main().catch((error) => {
+  console.error(error);
+  process.exitCode = 1;
+});
+
+```
+
 * 脚本命令
 ```
 npx hardhat run scripts/deploy.js --network avalanche
 ```
 ---
-* Teacher链上地址
+* JasunToken链上地址
 ```
-https://testnet.snowtrace.io/address/0x0B0796198992913484D444f9Be059D8Ab397001f
+https://testnet.snowtrace.io/address/0x4c17DC680D131282465468C35BBF9D690C1561eD
 ```
-* Score链上地址
+* Vault链上地址
 ```
-https://testnet.snowtrace.io/address/0x07cebae28B4BCC8629e81c799201d46445b8F570
+https://testnet.snowtrace.io/address/0x9bB36Ac27c2922233E25292465f8E6eECf367d6b
 ```
 * 截图
 <p align="center">
-  <img src="./images/deploy.png">
+  <img src="./images/jasuntoken_detail.png">
 </p>
-
-### 4. explorer执行相关方法
-* 截图
-<p align="center">
-  <img src="./images/explorer.png">
-</p>
-
-* 教师添加学生分数明细
-```
-https://testnet.snowtrace.io/tx/0x00b483a23a6ff5050429b21760fefb463a5143363364837bf8b00975c2e6ad31
-```
-* 教师修改学生分数明细
-```
-https://testnet.snowtrace.io/tx/0xd8309b4043d1d7130b940ab87b549f464d2c47b34460e5d64a2e8c68ee7e7af3
-```
