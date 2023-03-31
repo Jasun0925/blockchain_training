@@ -39,7 +39,7 @@ contract Score is IScore {
         studentAddr = _studentAddr;
         score = _score;
 
-        // 默认为老师添加学生，则此处设置为老师地址
+        // 默认为老师添加学生，则此处设置为老师合约地址
         teacherScAddr = msg.sender;
         emit AddScore(studentAddr, score);
     }
@@ -65,7 +65,7 @@ contract Score is IScore {
 }
 
 ```
-### 2. 编写合约Score, 用于记录学生(地址)分数：
+### 2. 编写合约Teacher, 用于操作添加学生分数/修改学生分数/查看学生分数等：
 ```
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.8.9;
@@ -74,7 +74,7 @@ import "./IScore.sol";
 
 contract Teacher {
     address public teacherAddr; // 教师地址
-    mapping(address => address) public students; // 学生地址=>分数
+    mapping(address => address) public students; // 学生地址=>学生分数合约
     address public proxyScoreAddr; // score合约副本，用于创建score合约
 
     event UpdateStudentScore(
@@ -100,7 +100,7 @@ contract Teacher {
         scoreAddr = deployMinimal(proxyScoreAddr);
         // 添加学生分数
         IScore(scoreAddr).addScore(studentAddr, score);
-        // 添加学生成绩映射
+        // 添加学生成绩合约地址映射
         students[studentAddr] = scoreAddr;
 
         emit UpdateStudentScore(scoreAddr, studentAddr, score, true);
